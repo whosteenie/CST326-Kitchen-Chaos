@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
@@ -7,6 +8,27 @@ public class Player : MonoBehaviour {
 
     public bool IsWalking { get; private set; }
     private Vector3 lastInteractDir;
+
+    private void Start() {
+        gameInput.OnInteractAction += GameInput_OnInteractAction;
+    }
+
+    private void GameInput_OnInteractAction(object sender, EventArgs e) {
+        var inputVector = gameInput.GetMovementVectorNormalized();
+
+        var moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        if(moveDir != Vector3.zero)
+            lastInteractDir = moveDir;
+
+        const float interactDistance = 2f;
+        if(!Physics.Raycast(transform.position, lastInteractDir, out var hit, interactDistance,
+               countersLayerMask)) return;
+
+        if(hit.transform.TryGetComponent(out ClearCounter clearCounter)) {
+            clearCounter.Interact();
+        }
+    }
 
     private void Update() {
         HandleMovement();
@@ -63,10 +85,10 @@ public class Player : MonoBehaviour {
             lastInteractDir = moveDir;
 
         const float interactDistance = 2f;
-        if(!Physics.Raycast(transform.position, lastInteractDir, out var hit, interactDistance, countersLayerMask)) return;
-        
+        if(!Physics.Raycast(transform.position, lastInteractDir, out var hit, interactDistance,
+               countersLayerMask)) return;
+
         if(hit.transform.TryGetComponent(out ClearCounter clearCounter)) {
-            clearCounter.Interact();
         }
     }
 }
