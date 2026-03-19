@@ -11,8 +11,31 @@ public class Player : MonoBehaviour {
 
         var moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
+        var moveDistance = moveSpeed * Time.deltaTime;
         var tr = transform;
-        tr.position += moveDir * (moveSpeed * Time.deltaTime);
+        var position = tr.position;
+        const float playerRadius = 0.7f;
+        const float playerHeight = 2f;
+        var canMove = !Physics.CapsuleCast(position, position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+
+        if(!canMove) {
+            var moveDirX = new Vector3(moveDir.x, 0f, 0f).normalized;
+            canMove = !Physics.CapsuleCast(position, position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+
+            if(canMove) {
+                moveDir = moveDirX;
+            } else {
+                var moveDirZ = new Vector3(0f, 0f, moveDir.z).normalized;
+                canMove = !Physics.CapsuleCast(position, position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+
+                if(canMove) {
+                    moveDir = moveDirZ;
+                }
+            }
+        }
+        if(canMove) {
+            tr.position += moveDir * moveDistance;
+        }
 
         IsWalking = moveDir != Vector3.zero;
 
