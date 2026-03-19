@@ -22,9 +22,10 @@ public class KitchenObject : MonoBehaviour
         }
         
         clearCounter.SetKitchenObject(this);
-        
-        transform.parent = clearCounter.GetKitchenObjectFollowTransform();
-        transform.localPosition = Vector3.zero;
+
+        Transform tr;
+        (tr = transform).parent = clearCounter.GetKitchenObjectFollowTransform();
+        tr.localPosition = Vector3.zero;
     }
 
     public ClearCounter GetClearCounter() {
