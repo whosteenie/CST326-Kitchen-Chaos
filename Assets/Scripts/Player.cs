@@ -23,8 +23,11 @@ public class Player : MonoBehaviour {
         inputVector = inputVector.normalized;
 
         var moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
-        transform.position += moveDir * (moveSpeed * Time.deltaTime);
         
-        Debug.Log(Time.deltaTime);
+        var tr = transform;
+        tr.position += moveDir * (moveSpeed * Time.deltaTime);
+        
+        const float rotateSpeed = 10f;
+        tr.forward = Vector3.Slerp(tr.forward, moveDir, rotateSpeed * Time.deltaTime);
     }
 }
