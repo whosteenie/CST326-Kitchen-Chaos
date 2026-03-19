@@ -2,31 +2,36 @@ using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    public static Player Instance { get; private set; }
+    
+    public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+    public class OnSelectedCounterChangedEventArgs : EventArgs {
+        public ClearCounter SelectedCounter;
+    }
+    
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
 
     public bool IsWalking { get; private set; }
     private Vector3 lastInteractDir;
+    private ClearCounter selectedCounter;
+
+    private void Awake() {
+        if(Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start() {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
     }
 
     private void GameInput_OnInteractAction(object sender, EventArgs e) {
-        var inputVector = gameInput.GetMovementVectorNormalized();
-
-        var moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
-
-        if(moveDir != Vector3.zero)
-            lastInteractDir = moveDir;
-
-        const float interactDistance = 2f;
-        if(!Physics.Raycast(transform.position, lastInteractDir, out var hit, interactDistance,
-               countersLayerMask)) return;
-
-        if(hit.transform.TryGetComponent(out ClearCounter clearCounter)) {
-            clearCounter.Interact();
+        if(selectedCounter != null) {
+            selectedCounter.Interact();
         }
     }
 
@@ -85,10 +90,24 @@ public class Player : MonoBehaviour {
             lastInteractDir = moveDir;
 
         const float interactDistance = 2f;
-        if(!Physics.Raycast(transform.position, lastInteractDir, out var hit, interactDistance,
-               countersLayerMask)) return;
-
-        if(hit.transform.TryGetComponent(out ClearCounter clearCounter)) {
+        if(Physics.Raycast(transform.position, lastInteractDir, out var hit, interactDistance, countersLayerMask)) {
+            if(hit.transform.TryGetComponent(out ClearCounter clearCounter)) {
+                if(clearCounter != null && clearCounter != selectedCounter) {
+                    SetSelectedCounter(clearCounter);
+                }
+            } else {
+                SetSelectedCounter(null);
+            }
+        } else {
+            SetSelectedCounter(null);
         }
+    }
+
+    private void SetSelectedCounter(ClearCounter sCounter) {
+        selectedCounter = sCounter;
+                    
+        OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
+            SelectedCounter = sCounter
+        });
     }
 }
