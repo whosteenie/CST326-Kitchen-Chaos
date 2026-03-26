@@ -259,16 +259,32 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
     m_RemovedComponents:
     - {fileID: 6289625630049244101, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5261771210811040880, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4589716710238282922, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1286775952490272161}
   m_SourcePrefab: {fileID: 100100000, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+--- !u!1 &2809152823354273469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8143070647044102886, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+  m_PrefabInstance: {fileID: 6340472374028694619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4289354179235545396 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7816906318471787887, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+  m_PrefabInstance: {fileID: 6340472374028694619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5988399579122367312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 353237590725857035, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+  m_PrefabInstance: {fileID: 6340472374028694619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6237968633526530230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 102550813385737453, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
   m_PrefabInstance: {fileID: 6340472374028694619}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7515400570933678320 stripped
@@ -293,5 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f2e94dc0b53214280911be537c00a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
-  clearCounter: {fileID: 0}
-  visualGameObject: {fileID: 4289354179235545396}
+  baseCounter: {fileID: 6992454449382623961}
+  visualGameObjectArray:
+  - {fileID: 4289354179235545396}
+  - {fileID: 2809152823354273469}
+  - {fileID: 5988399579122367312}
+  - {fileID: 6237968633526530230}
