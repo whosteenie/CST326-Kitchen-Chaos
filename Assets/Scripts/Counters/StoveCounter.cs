@@ -3,7 +3,13 @@ using UnityEngine;
 
 public class StoveCounter : BaseCounter
 {
-    private enum State {
+    public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
+    
+    public class OnStateChangedEventArgs : EventArgs {
+        public State state;
+    }
+    
+    public enum State {
         Idle,
         Frying,
         Fried,
@@ -35,9 +41,11 @@ public class StoveCounter : BaseCounter
 
                         KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
                         
-                        burningRecipeSO = GetBurningRecipeSoWithInput(GetKitchenObject().GetKitchenObjectSO());
                         state = State.Fried;
                         burningTimer = 0f;
+                        burningRecipeSO = GetBurningRecipeSoWithInput(GetKitchenObject().GetKitchenObjectSO());
+                        
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs { state = state });
                     }
                     break;
                 case State.Fried:
@@ -48,6 +56,8 @@ public class StoveCounter : BaseCounter
                         KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
                         
                         state = State.Burnt;
+                        
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs { state = state });
                     }
                     break;
                 case State.Burnt:
@@ -65,6 +75,8 @@ public class StoveCounter : BaseCounter
                     fryingRecipeSO = GetFryingRecipeSoWithInput(GetKitchenObject().GetKitchenObjectSO());
                     
                     state = State.Frying;
+                    OnStateChanged?.Invoke(this, new OnStateChangedEventArgs { state = state });
+                    
                     fryingTimer = 0f;
                 }
             } else {
@@ -74,6 +86,7 @@ public class StoveCounter : BaseCounter
             } else {
                 GetKitchenObject().SetKitchenObjectParent(player);
                 state = State.Idle;
+                OnStateChanged?.Invoke(this, new OnStateChangedEventArgs { state = state });
             }
         }
     }
