@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CuttingRecipeSO
   input: {fileID: 11400000, guid: 33b53ec7503bcb749aa5f93f2069a553, type: 2}
   output: {fileID: 11400000, guid: 4bafd0bb06b22124dacacfef37958065, type: 2}
+  cuttingProgressMax: 3
