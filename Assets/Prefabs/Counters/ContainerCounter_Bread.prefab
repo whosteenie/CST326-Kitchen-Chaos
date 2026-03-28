@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 763507232882271115, guid: a39c99aebfd3bfd4cacb7b0d7f86a728, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 773284833882451382, guid: a39c99aebfd3bfd4cacb7b0d7f86a728, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711797801995698751, guid: a39c99aebfd3bfd4cacb7b0d7f86a728, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2560674955652953047, guid: a39c99aebfd3bfd4cacb7b0d7f86a728, type: 3}
       propertyPath: kitchenObjectSo
       value: 
@@ -19,6 +31,10 @@ PrefabInstance:
     - target: {fileID: 6068471142415142164, guid: a39c99aebfd3bfd4cacb7b0d7f86a728, type: 3}
       propertyPath: m_Name
       value: ContainerCounter_Bread
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063135833848568303, guid: a39c99aebfd3bfd4cacb7b0d7f86a728, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7731895356689351752, guid: a39c99aebfd3bfd4cacb7b0d7f86a728, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,6 +74,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7731895356689351752, guid: a39c99aebfd3bfd4cacb7b0d7f86a728, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187213377105917542, guid: a39c99aebfd3bfd4cacb7b0d7f86a728, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
