@@ -1,6 +1,11 @@
+using System;
 using UnityEngine;
 
 public interface IHasProgress
 {
-    // 5:48:25
+    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
+
+    public class OnProgressChangedEventArgs : EventArgs {
+        public float ProgressNormalized;
+    }
 }
