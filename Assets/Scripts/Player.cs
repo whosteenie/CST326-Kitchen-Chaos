@@ -4,6 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, IKitchenObjectParent {
     public static Player Instance { get; private set; }
     
+    public event EventHandler OnPickedSomething;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs {
         public BaseCounter SelectedCounter;
@@ -127,6 +128,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
     public void SetKitchenObject(KitchenObject incomingKitchenObject) {
         kitchenObject = incomingKitchenObject;
+
+        if(kitchenObject != null) {
+            OnPickedSomething?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public KitchenObject GetKitchenObject() {
