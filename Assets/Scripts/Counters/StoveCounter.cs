@@ -66,6 +66,7 @@ public class StoveCounter : BaseCounter, IHasProgress
                         
                         state = State.Burnt;
                         
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { ProgressNormalized = 0f });
                         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs { state = state });
                     }
                     break;
