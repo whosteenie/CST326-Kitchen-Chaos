@@ -254,12 +254,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981433258272446446}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54074f7c765291e4fa0976adb2428e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LookAtCamera
-  mode: 1
+  mode: 2
 --- !u!1 &2074934659350242365
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,8 +495,8 @@ MonoBehaviour:
   backgroundImage: {fileID: 3245102448944780377}
   iconImage: {fileID: 4156388029085663045}
   messageText: {fileID: 4977022859058406462}
-  successColor: {r: 0.14509805, g: 0.85882354, b: 0, a: 0}
-  failedColor: {r: 1, g: 0, b: 0, a: 0}
+  successColor: {r: 0.14509805, g: 0.85882354, b: 0, a: 1}
+  failedColor: {r: 1, g: 0, b: 0, a: 1}
   successSprite: {fileID: 21300000, guid: 6c562ac6d3e47ff4794df31886c6d864, type: 3}
   failedSprite: {fileID: 21300000, guid: 0d6e1281049dccc4189bf308b2ccf331, type: 3}
 --- !u!95 &1238477299562682022
