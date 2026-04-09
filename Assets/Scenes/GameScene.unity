@@ -2485,9 +2485,9 @@ RectTransform:
   - {fileID: 2118340191}
   m_Father: {fileID: 86654504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &386629392
@@ -5780,9 +5780,9 @@ RectTransform:
   - {fileID: 2096907881}
   m_Father: {fileID: 86654504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 67.96, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &982693255
@@ -6242,7 +6242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1037946273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6280,13 +6280,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736e35e4f9382cf4c8a11dd4644e6719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialUI
-  keyMoveUpText: {fileID: 0}
-  keyMoveDownText: {fileID: 0}
-  keyMoveLeftText: {fileID: 0}
-  keyMoveRightText: {fileID: 0}
-  keyInteractText: {fileID: 0}
-  keyInteractAlternateText: {fileID: 0}
-  keyPauseText: {fileID: 0}
+  keyMoveUpText: {fileID: 2118340192}
+  keyMoveDownText: {fileID: 2096907882}
+  keyMoveLeftText: {fileID: 467787632}
+  keyMoveRightText: {fileID: 586482383}
+  keyInteractText: {fileID: 1817883417}
+  keyInteractAlternateText: {fileID: 1200161270}
+  keyPauseText: {fileID: 12279900}
 --- !u!1 &1040381304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7603,6 +7603,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1206677012}
   - component: {fileID: 1206677013}
+  - component: {fileID: 1206677015}
+  - component: {fileID: 1206677014}
   m_Layer: 5
   m_Name: GameStartCountdownUI
   m_TagString: Untagged
@@ -7620,7 +7622,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1391391646}
   m_Father: {fileID: 386629396}
@@ -7643,6 +7645,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStartCountdownUI
   countdownText: {fileID: 1391391647}
+--- !u!225 &1206677014
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206677011}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &1206677015
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206677011}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6681dafe332751f469e64d7e212be0b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1242218351
 GameObject:
   m_ObjectHideFlags: 0
@@ -10140,9 +10176,9 @@ RectTransform:
   - {fileID: 586482382}
   m_Father: {fileID: 86654504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 163.88, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1695133708
@@ -13137,9 +13173,9 @@ RectTransform:
   - {fileID: 467787631}
   m_Father: {fileID: 86654504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 115.92, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2096907880
